@@ -79,6 +79,7 @@ The app supports three environments:
 ## Building
 
 ### Android
+make sure to add storeFile 
 ```bash
 melos run build:rider:prod
 ```

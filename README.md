@@ -32,8 +32,16 @@ function melos() {
 }
 ```
 
+2. Add .env files in the respective app folders:
+- apps/leggo_driver/.env.development
+- apps/leggo_driver/.env.staging
+- apps/leggo_driver/.env.production
 
-2. Install flutter dependencies:
+- apps/leggo_rider/.env.development
+- apps/leggo_rider/.env.staging
+- apps/leggo_rider/.env.production
+
+3. Install flutter dependencies:
 ```bash
 melos bootstrap
 
@@ -41,7 +49,7 @@ melos bootstrap
 melos bs
 ```
 
-3. Run the app:
+4. Run the app:
 ```bash
 
 # development
