@@ -1,0 +1,65 @@
+name: leggo_android
+environment:
+  sdk: '>=3.10.7 <4.0.0'
+dev_dependencies:
+  melos: ^7.4.0
+workspace:
+  - apps/leggo_driver
+  - apps/leggo_rider
+  - packages/shared
+melos:
+  scripts:
+    # analyze all packages
+    analyze:
+      name: analyze
+      description: 'Analyze all packages'
+      run: flutter analyze
+      exec:
+        concurrency: 2
+        failFast: true
+    # test selected package/s
+    test:
+      description: 'Selective test packages'
+      run: flutter test --test-randomize-ordering-seed=random
+      exec:
+        concurrency: 2
+        failFast: true
+      packageFilters:
+        dirExists: test
+
+    # Driver app flavors
+    driver:dev:
+      description: 'Run Driver app - Development'
+      run: cd apps/leggo_driver && flutter run --flavor development
+
+    driver:stg:
+      description: 'Run Driver app - Staging'
+      run: cd apps/leggo_driver && flutter run --flavor staging
+
+    driver:prod:
+      description: 'Run Driver app - Production'
+      run: cd apps/leggo_driver && flutter run --flavor production
+
+    # Rider app flavors
+    rider:dev:
+      description: 'Run Rider app - Development'
+      run: cd apps/leggo_rider && flutter run --flavor development
+
+    rider:stg:
+      description: 'Run Rider app - Staging'
+      run: cd apps/leggo_rider && flutter run --flavor staging
+
+    rider:prod:
+      description: 'Run Rider app - Production'
+      run: cd apps/leggo_rider && flutter run --flavor production
+
+    # ===== Builds =====
+    # Driver app builds
+    build:driver:prod:
+      description: 'Build Driver APK - Production'
+      run: cd apps/leggo_driver && flutter build apk --release --flavor production
+
+    # Rider app builds
+    build:rider:prod:
+      description: 'Build Rider APK - Production'
+      run: cd apps/leggo_rider && flutter build apk --release --flavor production

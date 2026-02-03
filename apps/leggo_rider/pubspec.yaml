@@ -1,0 +1,35 @@
+name: leggo_rider
+description: Leggo rider app.
+version: 0.0.1+1
+publish_to: none
+
+environment:
+  sdk: ^3.10.7
+  flutter: ^3.38.7
+resolution: workspace
+
+dependencies:
+  bloc: ^9.0.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+  shared:
+    path: "../../packages/shared"
+
+dev_dependencies:
+  bloc_test: ^10.0.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  very_good_analysis: ^10.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - .env.development
+    - .env.staging
+    - .env.production
